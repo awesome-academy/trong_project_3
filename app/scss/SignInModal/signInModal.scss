@@ -1,0 +1,98 @@
+@mixin SetPosition($position,$top,$left,$width,$height) {
+    position: $position;
+    top: $top;
+    left: $left;
+    width: $width;
+    height: $height;
+}
+@mixin active {
+  left: 0;
+  width:100%;
+}
+.modal-signin{
+  @include SetPosition(fixed, 0, 0, 100%, 100%);
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 10001;
+  visibility: hidden;
+  transition: all .5s ease;
+  &__close{
+    @include SetPosition(absolute, $px20,initial,initial , initial);
+    right: $px20;
+    font-size: $r-2;
+    opacity: .5;
+    cursor: pointer;
+    &:hover{
+      opacity: 1;
+    }
+  }
+  &__content{
+    @include SetPosition(absolute, 10%, 50%, 80%,auto);
+    transform: translate(-50%,-152%);
+    background-color: $color-white;
+    padding: $px30;
+    transition: all .5s ease;
+  }
+  &__action{
+    display: flex;
+    align-items: center;
+    p{
+      margin: 0 $px20;
+      font-size: 2rem;
+      font-weight: 900;
+      color: $color-darkgrey;
+      transform: translateY(-20%);
+    }
+    a{
+      display: block;
+      color:$color-gray;
+      font-size: 2rem;
+      font-weight: bolder;
+      position: relative;
+      padding-bottom: $px10;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      &::after{
+        content: "";
+        @include SetPosition(absolute,initial, 50%, 0, 2px);
+        bottom: 0;
+        background-color: $color-linear2;
+        transition: all .35s ease;
+      }
+      &:hover{
+        color: $color-linear2;
+        &:after{
+          @include active();
+        }
+      }
+    }
+    .active{
+      color: $color-linear2;
+      &::after{
+        @include active();
+      }
+    }
+  }
+  &__form{
+    padding-top: $px30;
+  }
+}
+.modal-signin.active{
+  visibility: visible;
+  .modal-signin__content{
+    transform: translate(-50%,0);
+  }
+}
+@media all and (min-width:$breakpoint-md){
+  .modal-signin{
+    &__content{
+      width: 60%;
+    }
+  }
+}
+@media all and (min-width:$breakpoint-lg){
+  .modal-signin{
+    &__content{
+      width: 40%;
+    }
+  }
+}
