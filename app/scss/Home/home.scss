@@ -1,0 +1,123 @@
+@mixin setImg($top,$left,$z-index,$width,$height) {
+  position: absolute;
+  top:$top;
+  left: $left;
+  z-index: $z-index;
+  width: $width;
+  height: $height;
+
+}
+
+.home-page{
+  margin-top: $px54;
+  height: 90vh;
+  background-position: top left;
+  background-size: auto;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  &__box{
+    display: flex;
+    flex-direction: column;
+  }
+  &__introduce{
+    text-align: center;
+    color: white;
+    font-family: $sub-font1;
+    padding: $px50 0;
+    text-transform: uppercase;
+    h2{
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
+      span{
+        &:nth-child(2){
+          color: $color-orange;
+        }
+      }
+    }
+    &-subtitle{
+      margin: $px10;
+      font-size: $r-2;
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1;
+    }
+    &-text{
+      font-size: $r-1-5;
+      color: $color-gray;
+      text-transform: capitalize;
+    }
+    &{
+      a{
+        display: inline-block;
+        text-align: center;
+        white-space: nowrap;
+        padding: $px10 $px30 $px9;
+        background: linear-gradient(to right, $color-linear1, $color-linear2);
+        border-radius: $px50;
+        margin-top: $px20;
+        color: $color-white;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: $sub-font1;
+        font-size: $r-1-5;
+      }
+    }
+  }
+  &__img{
+    position: relative;
+    width: 100%;
+    &-item{
+      &:nth-child(3){
+        @include setImg($px20,50%,1000,$px200,$px300);
+        transform: translateX(-50%);
+      }
+      &:nth-child(1){
+        @include setImg(-26px,1%,998,$px150,$px250);
+      }
+      &:nth-child(2){
+        @include setImg($px2,14%,999,$px150,$px250);
+      }
+      &:nth-child(4){
+        @include setImg($px2,initial,999,$px150,$px250);
+        right: 14%;
+      }
+      &:nth-child(5){
+        @include setImg(-26px,initial,998,$px150,$px250);
+        right: 1%;
+      }
+    }
+  }
+
+}
+@media screen and (min-width:700px){
+  .home-page{
+    height: 110vh;
+    background-size: cover;
+    &__img{
+      &-item{
+          &:nth-child(3){
+            width: $px300;
+            height: $px400;
+          }
+          &:nth-child(1){
+            width: $px250;
+            height: $px400;
+          }
+          &:nth-child(2){
+            width: $px250;
+            height: $px400;
+          }
+          &:nth-child(4){
+            width: $px250;
+            height: $px400;
+          }
+          &:nth-child(5){
+            width: $px250;
+            height: $px400;
+          }
+      }
+    }
+
+  }
+}
