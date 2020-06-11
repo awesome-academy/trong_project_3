@@ -38,7 +38,12 @@
   "boilerplate.containers.SignInMoDal.SignIn":"Sign In",
   "boilerplate.containers.SignInMoDal.SignUp":"Sign Up",
   "boilerplate.containers.SignInMoDal.User":"User",
-  "boilerplate.containers.SignInMoDal.Guess":"Guess"
-
+  "boilerplate.containers.SignInMoDal.Guess":"Guess",
+  "boilerplate.containers.header.logout":"Log Out",
+  "boilerplate.containers.header.profile":"Your Profile",
+  "boilerplate.containers.header.order":"Your Order",
+  "boilerplate.containers.header.search":"Search...",
+  "boilerplate.containers.SchedulePage.allCity":"All City",
+  "boilerplate.containers.SchedulePage.allCinema":"All Cinema"
 
 }
